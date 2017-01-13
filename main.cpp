@@ -13,9 +13,9 @@
 #include <opencv2\highgui\highgui.hpp>
 #include <opencv2\videoio\videoio.hpp>
 #include <iostream>
+#include <Windows.h>       //for sleep function on windows machines
 
 using namespace cv;
-
 using namespace std;
 
 int main()
@@ -59,6 +59,7 @@ int main()
 	//boolean
 	bool isColor = true;
 
+	//initialize the videowriter object
 	writer = VideoWriter(filename, fourcc, FPS, imageSize, isColor);
 
 	if (!writer.isOpened())
@@ -74,8 +75,11 @@ int main()
 	{
 		//copy webcam stream to image
 		cap >> frame;
+		
+		//flip the streamed frame 
 		flip(frame, flippedFrame, 1);
 
+		//write flipped frame to video file
 		writer.write(flippedFrame);
 
 		//print image to screen
