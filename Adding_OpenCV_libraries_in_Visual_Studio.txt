@@ -1,0 +1,5 @@
+Project Configuration Properties
+
+1 => Config Properties => C/C++ => additional include directories :PASTE= >  C:\opencv310\build\include <==
+2 => Config properties => Linker => General => additional library directories:PASTE=> C:\opencv310\build\x64\vc14\lib <=
+3 => Config properties => Linker => Input => additional dependencies :PASTE=> opencv_world310d.lib <=
